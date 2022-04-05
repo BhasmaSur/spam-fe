@@ -1,20 +1,24 @@
 import './App.css';
 import AllRoutes from './routes';
 import Test from './views/test/Test';
+import { makeStyles } from '@spammetwice/common';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    [theme.breakpoints.down('sm')]: {
+      backgroundColor:"#904",
+      h1:{
+        fontSize:"20px"
+      }
+    }
+  },
+}));
 
 function App() {
 
-  const theme = JSON.parse(localStorage.getItem('theme'));
-  if (theme) {
-    const { primaryColorCode, sideBarBg, isDark } = theme;
-    primaryColorCode && document.documentElement.style.setProperty('--primary', primaryColorCode);
-    sideBarBg &&
-      document.documentElement.style.setProperty('--sidebar-bg', isDark ? sideBarBg : '#fff');
-  }
-  
-  String.prototype.capitalize = function () {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-  };
+
+  const classes = useStyles();
+  console.log("classes",classes)
   return (
     <div className="App">
       <AllRoutes/>

@@ -33,7 +33,13 @@ import Tooltip from '@mui/material/Tooltip';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { makeStyles } from "@mui/styles";
+import { createTheme } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
 export {
+  makeStyles,
+  createTheme,
+  ThemeProvider,
   Box,
   Button,
   Paper,
@@ -75,7 +81,8 @@ export {
 
 import InputField from "./components/input-field/inputField";
 import PrimarySearchAppBar from "./components/navbar";
-export { InputField, PrimarySearchAppBar };
+import theme from "./components/theme"
+export { InputField, PrimarySearchAppBar,theme };
 
 //custom hooks
 import useWindowDimensions from "./utils/hooks/useWindowsDimensions";
