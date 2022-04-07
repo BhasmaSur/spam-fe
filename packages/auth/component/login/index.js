@@ -18,7 +18,7 @@ const IdpLogin = (props) => {
   const historyHook = useNavigate();
 
   const handleSignUp = () =>{
-    historyHook("/signup")
+    historyHook("/home")
   }
 
   const verifyUser = () => {
