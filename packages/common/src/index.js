@@ -36,7 +36,10 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { makeStyles } from "@mui/styles";
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@mui/material";
+import Link from '@mui/material/Link';
+
 export {
+  Link,
   makeStyles,
   createTheme,
   ThemeProvider,
@@ -77,12 +80,16 @@ export {
 
 };
 
+//external packages
+import { v4 as uuidv4 } from 'uuid';
+
 //custom components
 
 import InputField from "./components/input-field/inputField";
 import PrimarySearchAppBar from "./components/navbar";
 import theme from "./components/theme"
-export { InputField, PrimarySearchAppBar,theme };
+import { FirstAd,SecondAd } from "./components/ads";
+export { InputField, PrimarySearchAppBar,theme,uuidv4,FirstAd ,SecondAd};
 
 //custom hooks
 import useWindowDimensions from "./utils/hooks/useWindowsDimensions";
