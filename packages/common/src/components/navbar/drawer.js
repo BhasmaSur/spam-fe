@@ -13,10 +13,15 @@ import {
   Cloud,
   ClickAwayListener
 } from "@spammetwice/common";
+import {useNavigate,Link} from "react-router-dom"
 const Drawer = ({ setMobileDrawerEl }) => {
+  const historyHook = useNavigate()
   const handleMobileDrawerClose = () => {
     setMobileDrawerEl(null);
   };
+  const redirectToHome = ()=>{
+    historyHook("/home")
+  }
   
   return (
     <ClickAwayListener onClickAway={handleMobileDrawerClose}>
@@ -33,7 +38,7 @@ const Drawer = ({ setMobileDrawerEl }) => {
           }}
         >
           <MenuItem>
-            <ListItemText>Home</ListItemText>
+            <ListItemText onClick={redirectToHome}>Home</ListItemText>
           </MenuItem>
           <MenuItem>
             <ListItemText>Reported Sites</ListItemText>

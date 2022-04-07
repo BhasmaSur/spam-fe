@@ -29,8 +29,10 @@ import { StyledInputBase } from "@spammetwice/common/src/components/styled-input
 import MobileMenu from "./menu";
 import NestedMenu from "./nested-menu";
 import Drawer from "./drawer";
+import {useNavigate,Link} from "react-router-dom"
 
 export default function PrimarySearchAppBar() {
+  const historyHook = useNavigate()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [mobileDrawerEl, setMobileDrawerEl] = React.useState(false);
@@ -52,7 +54,9 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
   const drawerId = "primary-search-account-drawer-mobile";
-
+  const redirectToHome = ()=>{
+    historyHook("/home")
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -86,7 +90,7 @@ export default function PrimarySearchAppBar() {
                 aria-label="account of current user"
                 aria-controls={menuId}
                 aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
+                onClick={redirectToHome}
                 color="inherit"
               >
                 <HomeIcon />

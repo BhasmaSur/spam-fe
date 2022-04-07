@@ -12,11 +12,12 @@ import { useDispatch } from "react-redux";
 import React, { useState, useEffect } from "react";
 import Login from "../views/login";
 import NotFound from "../views/not-found/notFound";
-import Dashboard from "../views/dashboard/dashboard";
+
 import SignUp from "../views/signup/signup";
 import Layout from "../hoc/layout";
 import Question from "../views/question";
 import { LandingPage } from "../views/landing-page";
+import Home from "../views/home";
 
 const GuardedRoutesBehindFeatureFlag = () => {
   const flags = {
@@ -91,6 +92,7 @@ const AllRoute = () => {
     <Router>
       <Routes>
         <Route path="/question" element={<Question />} exact />
+        <Route path="/home" element={<Home />} exact />
         <Route path="/login" element={<Login />} exact />
         <Route path="/signup" element={<SignUp />} exact />
         <Route path="/*" element={<GuardedRoutes />} />
