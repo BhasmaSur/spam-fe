@@ -16,6 +16,7 @@ import Dashboard from "../views/dashboard/dashboard";
 import SignUp from "../views/signup/signup";
 import Layout from "../hoc/layout";
 import Question from "../views/question";
+import { LandingPage } from "../views/landing-page";
 
 const GuardedRoutesBehindFeatureFlag = () => {
   const flags = {
@@ -26,7 +27,7 @@ const GuardedRoutesBehindFeatureFlag = () => {
     <Layout flags={flags}>
       <Routes>
         <Route path="/admin-page" element={<Test />} exact />
-        <Route path="/landing-page" element={<Dashboard />} exact />
+        <Route path="/landing-page" element={<LandingPage />} exact />
         <Route path="*" element={<NotFound />} exact />
       </Routes>
     </Layout>

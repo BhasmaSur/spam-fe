@@ -3,7 +3,7 @@ import { BLNavbar } from "@spammetwice/common/src/components/navbar-before-login
 import { useNavigate } from "react-router-dom";
 import { auth } from "@spammetwice/auth";
 import SpamTemplate from "@spammetwice/common/src/components/spam-template";
-
+import {data} from "@spammetwice/web/src/demo-data"
 const Question = () => {
   const { getSessionData } = auth();
   const historyHook = useNavigate();
@@ -14,16 +14,6 @@ const Question = () => {
       return;
     }
   }, [historyHook]);
-  const data = {
-    heading:
-      "how is this spam, whay st do you think about it, its exprensive, they asked",
-    description:[
-      "askdbasdbjsabdjsa asjdbjasbd sajdjasdjsads absdjasbd jsabdjasdvjas asjbdjas jvasjdvsa dsajdvjsavdsa djasvdjsavdjas djsadvjsad sajdvjasvdas djasvdjsavdjas djsavdjasvdjasdj asdjas",
-      "asdbha jsadb ajsdbjsa dkashdias sakdhkasd kasdksa",
-      "a sdasjdbas djasud asdhas dasidhasud awdia c9a8d9asdiasdhiasd saidhasidas dia"
-    ]
-
-  };
   return (
     <div>
       <BLNavbar />

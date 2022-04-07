@@ -1,10 +1,15 @@
 {
   "name": "@spammetwice/root",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "lerna": "^4.0.0"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "scripts": {
+    "start": "lerna run start --scope=@spammetwice/web",
+    "bootstrap": "lerna bootstrap --hoist",
+    "build": "lerna run build --scope=@spammetwice/web"
+  }
 }

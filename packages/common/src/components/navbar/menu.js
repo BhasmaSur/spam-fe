@@ -1,4 +1,5 @@
 import React from "react";
+import { auth } from '@spammetwice/auth';
 import {
   Menu,
   MenuItem,
@@ -9,8 +10,15 @@ import {
   AccountCircle,
   LogoutIcon
 } from "@spammetwice/common";
+import {
+  useNavigate
+} from "react-router-dom";
 
 const MobileMenu = ({mobileMoreAnchorEl,setAnchorEl,setMobileMoreAnchorEl}) => {
+
+  const historyHook = useNavigate();
+  const {logout} = auth()
+
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const mobileMenuId = "primary-search-account-menu-mobile";
   const handleMobileMenuClose = () => {
@@ -20,6 +28,11 @@ const MobileMenu = ({mobileMoreAnchorEl,setAnchorEl,setMobileMoreAnchorEl}) => {
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  const handleLogout = () =>{
+    logout()
+    historyHook("login")
+  }
   return (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -68,7 +81,7 @@ const MobileMenu = ({mobileMoreAnchorEl,setAnchorEl,setMobileMoreAnchorEl}) => {
         </IconButton>
         <p>Profile</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem onClick={handleLogout}>
         <IconButton
           size="large"
           aria-label="account of current user"
