@@ -10,6 +10,6 @@
   "scripts": {
     "start": "lerna run start --scope=@spammetwice/web",
     "bootstrap": "lerna bootstrap --hoist",
-    "build": "lerna run build --scope=@spammetwice/web"
+    "build": "CI=false && lerna run build --scope=@spammetwice/web"
   }
 }
