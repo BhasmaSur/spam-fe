@@ -129,7 +129,7 @@ export default function PrimarySearchAppBar() {
                 aria-label="account of current user"
                 aria-controls={menuId}
                 aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
+                onClick={()=>historyHook("/add-spam")}
                 color="inherit"
               >
                 <AddIcon />

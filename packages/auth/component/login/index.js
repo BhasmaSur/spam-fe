@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { makeStyles } from "@spammetwice/common";
 import {
   Button,
   Paper,
@@ -11,7 +12,17 @@ import {
 import { InputField } from "@spammetwice/common";
 import "./idplogin.css";
 
+const useStyles = makeStyles((theme)=>({
+  loginBox:{
+    marginTop:"150px",
+    [theme.breakpoints.down("sm")]:{
+      marginTop:"100px",
+    }
+  }
+}))
+
 const IdpLogin = (props) => {
+  const classes = useStyles();
   const { redirectUrl, validateDetails, onSuccess } = props;
   const [userName, setUserName] = useState();
   const [password, setPassword] = useState();
@@ -46,12 +57,12 @@ const IdpLogin = (props) => {
     <Grid container spacing={3}>
       <Grid item xs={12}>
         <Box
+          className={classes.loginBox}
           sx={{
             display: "flex",
             justifyContent: "center",
             flexWrap: "wrap",
             "& > :not(style)": {
-              mt: 25,
               width: 500,
               height: 500,
             },

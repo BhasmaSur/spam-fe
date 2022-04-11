@@ -27,16 +27,16 @@ import ContentCopy from "@mui/icons-material/ContentCopy";
 import ContentPaste from "@mui/icons-material/ContentPaste";
 import Cloud from "@mui/icons-material/Cloud";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
-import HomeIcon from '@mui/icons-material/Home';
-import PlaylistRemoveIcon from '@mui/icons-material/PlaylistRemove';
-import Tooltip from '@mui/material/Tooltip';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
-import LogoutIcon from '@mui/icons-material/Logout';
+import HomeIcon from "@mui/icons-material/Home";
+import PlaylistRemoveIcon from "@mui/icons-material/PlaylistRemove";
+import Tooltip from "@mui/material/Tooltip";
+import DeleteIcon from "@mui/icons-material/Delete";
+import AddIcon from "@mui/icons-material/Add";
+import LogoutIcon from "@mui/icons-material/Logout";
 import { makeStyles } from "@mui/styles";
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@mui/material";
-import Link from '@mui/material/Link';
+import Link from "@mui/material/Link";
 
 export {
   Link,
@@ -77,19 +77,34 @@ export {
   DeleteIcon,
   AddIcon,
   LogoutIcon
-
 };
 
 //external packages
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 //custom components
 
-import InputField from "./components/input-field/inputField";
+import {InputField,RemovableInputField} from "./components/input-field/";
 import PrimarySearchAppBar from "./components/navbar";
-import theme from "./components/theme"
-import { FirstAd,SecondAd } from "./components/ads";
-export { InputField, PrimarySearchAppBar,theme,uuidv4,FirstAd ,SecondAd};
+import theme from "./components/theme";
+import AddSpamTemplate from "./components/add-spam-template";
+import { FirstAd, SecondAd } from "./components/ads";
+import AddFields from "./components/add-fields";
+import UploadImageBox from "./components/upload-img-box";
+
+
+export {
+  InputField,
+  RemovableInputField,
+  PrimarySearchAppBar,
+  theme,
+  uuidv4,
+  FirstAd,
+  SecondAd,
+  AddSpamTemplate,
+  AddFields,
+  UploadImageBox
+};
 
 //custom hooks
 import useWindowDimensions from "./utils/hooks/useWindowsDimensions";

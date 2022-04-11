@@ -18,6 +18,7 @@ import Layout from "../hoc/layout";
 import Question from "../views/question";
 import { LandingPage } from "../views/landing-page";
 import Home from "../views/home";
+import AddSpam from "../views/add-spam";
 
 const GuardedRoutesBehindFeatureFlag = () => {
   const flags = {
@@ -29,6 +30,7 @@ const GuardedRoutesBehindFeatureFlag = () => {
       <Routes>
         <Route path="/admin-page" element={<Test />} exact />
         <Route path="/landing-page" element={<LandingPage />} exact />
+        <Route path="/add-spam" element={<AddSpam />} exact />
         <Route path="*" element={<NotFound />} exact />
       </Routes>
     </Layout>
