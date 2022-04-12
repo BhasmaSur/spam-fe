@@ -57,6 +57,9 @@ export default function PrimarySearchAppBar() {
   const redirectToHome = ()=>{
     historyHook("/home")
   }
+  const hendleReportedList = ()=>{
+    historyHook("/reported-sites")
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -103,7 +106,7 @@ export default function PrimarySearchAppBar() {
                 aria-label="account of current user"
                 aria-controls={menuId}
                 aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
+                onClick={hendleReportedList}
                 color="inherit"
               >
                 <PlaylistRemoveIcon />
