@@ -19,6 +19,8 @@ import Question from "../views/question";
 import { LandingPage } from "../views/landing-page";
 import Home from "../views/home";
 import AddSpam from "../views/add-spam";
+import {LoadingScreen} from "@spammetwice/common";
+import ReportedSitesList from "../views/reported-sites";
 
 const GuardedRoutesBehindFeatureFlag = () => {
   const flags = {
@@ -31,6 +33,7 @@ const GuardedRoutesBehindFeatureFlag = () => {
         <Route path="/admin-page" element={<Test />} exact />
         <Route path="/landing-page" element={<LandingPage />} exact />
         <Route path="/add-spam" element={<AddSpam />} exact />
+        <Route path="/reported-sites" element={<ReportedSitesList />} exact />
         <Route path="*" element={<NotFound />} exact />
       </Routes>
     </Layout>
@@ -97,6 +100,8 @@ const AllRoute = () => {
         <Route path="/home" element={<Home />} exact />
         <Route path="/login" element={<Login />} exact />
         <Route path="/signup" element={<SignUp />} exact />
+        <Route path="/test" element={<Test />} exact />
+        <Route path="/circular-progress" element={<LoadingScreen />} exact />
         <Route path="/*" element={<GuardedRoutes />} />
       </Routes>
     </Router>

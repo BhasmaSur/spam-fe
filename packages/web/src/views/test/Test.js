@@ -1,18 +1,25 @@
-import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment, incrementByAmount } from "../../redux/counter";
-
+import { fakeHttpRequests,LoadingScreen} from "@spammetwice/common"
+import {useState,useEffect} from "react"
 function Test() {
-    const { count } = useSelector((state) => state.counter);
-    const dispatch = useDispatch();
+  const [questionData,setQuestionData] = useState([])
+  const fetchQuestionData = async ()=>{
+    const result = await fakeHttpRequests()
+    setQuestionData(result.description)
+    console.log(result.description)
+  }
+  useEffect(()=>{
+    fetchQuestionData()
+  },[])
+  
     return (
       <div>
-          In Test
-        <h1> The count is: {count}</h1>
-        <button onClick={() => dispatch(increment())}>increment</button>
-        <button onClick={() => dispatch(decrement())}>decrement</button>
-        <button onClick={() => dispatch(incrementByAmount(33))}>
-          Increment by 33
-        </button>
+        <h1>Test</h1>
+        <div>
+          {questionData.length < 1 && <LoadingScreen/>}
+          {questionData.map((item)=>{
+            return <div>{item.type}</div>
+          })}
+        </div>
       </div>
     );
   }

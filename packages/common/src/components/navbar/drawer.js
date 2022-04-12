@@ -19,8 +19,9 @@ const Drawer = ({ setMobileDrawerEl }) => {
   const handleMobileDrawerClose = () => {
     setMobileDrawerEl(null);
   };
-  const redirectToHome = ()=>{
-    historyHook("/home")
+  const redirectTo = (path)=>{
+    handleMobileDrawerClose()
+    historyHook(path)
   }
   
   return (
@@ -38,14 +39,14 @@ const Drawer = ({ setMobileDrawerEl }) => {
           }}
         >
           <MenuItem>
-            <ListItemText onClick={redirectToHome}>Home</ListItemText>
+            <ListItemText onClick={()=>redirectTo("/home")}>Home</ListItemText>
           </MenuItem>
           <MenuItem>
-            <ListItemText>Reported Sites</ListItemText>
+            <ListItemText  onClick={()=>redirectTo("/reported-sites")}>Reported Sites</ListItemText>
           </MenuItem>
           <Divider />
           <MenuItem>
-            <ListItemText>Spam Me Twice!</ListItemText>
+            <ListItemText  onClick={()=>redirectTo("/home")}>Spam Me Twice!</ListItemText>
           </MenuItem>
         </MenuList>
       </Paper>
