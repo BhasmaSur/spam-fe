@@ -27,6 +27,7 @@ const columns = [
     label: "Actions",
     minWidth: 170,
     align: "center",
+    type: "drop-down",
     format: (value) => value.toLocaleString("en-US"),
   },
   {

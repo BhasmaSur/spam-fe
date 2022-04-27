@@ -1,5 +1,5 @@
 import React from "react";
-import { auth } from '@spammetwice/auth';
+import { auth } from "@spammetwice/auth";
 import {
   Menu,
   MenuItem,
@@ -8,16 +8,17 @@ import {
   MailIcon,
   NotificationsIcon,
   AccountCircle,
-  LogoutIcon
+  LogoutIcon,
 } from "@spammetwice/common";
-import {
-  useNavigate
-} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const MobileMenu = ({mobileMoreAnchorEl,setAnchorEl,setMobileMoreAnchorEl}) => {
-
+const MobileMenu = ({
+  mobileMoreAnchorEl,
+  setAnchorEl,
+  setMobileMoreAnchorEl,
+}) => {
   const historyHook = useNavigate();
-  const {logout} = auth()
+  const { logout } = auth();
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const mobileMenuId = "primary-search-account-menu-mobile";
@@ -27,12 +28,14 @@ const MobileMenu = ({mobileMoreAnchorEl,setAnchorEl,setMobileMoreAnchorEl}) => {
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
+    handleMobileMenuClose();
+    historyHook("user-profile");
   };
 
-  const handleLogout = () =>{
-    logout()
-    historyHook("login")
-  }
+  const handleLogout = () => {
+    logout();
+    historyHook("login");
+  };
   return (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -49,7 +52,7 @@ const MobileMenu = ({mobileMoreAnchorEl,setAnchorEl,setMobileMoreAnchorEl}) => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      {/* <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
             <MailIcon />
@@ -68,7 +71,7 @@ const MobileMenu = ({mobileMoreAnchorEl,setAnchorEl,setMobileMoreAnchorEl}) => {
           </Badge>
         </IconButton>
         <p>Notifications</p>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"

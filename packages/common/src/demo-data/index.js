@@ -58,5 +58,64 @@ const data = {
 
   };
 
+  const profile_data = {
+    spams : [
+      {
+        title : "askhdsa jsabdas jas asj asjdbasdasnd asbdsa djas dsajdnsaid asjdsajd askdjsa kdsa j",
+        comments : 3,
+        upvotes : 123,
+        createdOn : "12 august 2021"
+      },
+      {
+        title : "askhdsa jsabdas jas asj asjdbasdasnd asbdsa dasd askdns adkasd sakdasnd sakd asdsado asdasd as d as dsa d as das das d as das dsa das d asd as d as d asjas dsajdnsaid asjdsajd askdjsa kdsa j",
+        comments : 3,
+        upvotes : 123,
+        createdOn : "12 august 2021"
+      },
+      {
+        title : "askhdsa jsabdas jas asj asjdbasdasnd asbdsa ",
+        comments : 3,
+        upvotes : 123,
+        createdOn : "12 august 2021"
+      },
+      {
+        title : "askhdsa jsabdas jas asj as",
+        comments : 3,
+        upvotes : 123,
+        createdOn : "12 august 2021"
+      },
+      {
+        title : "askhdsa jsabdas jas asj asjdbasdasnd asbdsa djas dsajdnsaid asjdsajd askdjsa kdsa jajsbdj ja sds kasjdsa dkasd sakdasd kasdnsakd askdnsakd askdjaskd ",
+        comments : 3,
+        upvotes : 123,
+        createdOn : "12 august 2021"
+      }
+    ],
+    tags : [
+      "WEB",
+      "MOBILE",
+      "MULTIPLE",
+      "DOLLAR",
+      "3090",
+      "PASSWORD",
+      "OTP",
+      "WRONG",
+      "WEB",
+      "MOBILE",
+      "MULTIPLE",
+      "DOLLAR",
+      "3090",
+      "PASSWORD",
+      "OTP",
+      "WRONG"
+    ],
+    activity : [
+    ],
+    userHighligts :{
+      employment : "Software Engineer in Meta",
+      education : "KV NDA",
+      location : "Pune, India"
+    },
 
-  export { data }
+  }
+  export { data,profile_data }

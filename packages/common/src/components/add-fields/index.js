@@ -23,11 +23,18 @@ const AddFields = ({itemHandler}) => {
     className={classes.boxStyle}
     >
       <Button 
+        color='secondary'
         sx={{borderTopLeftRadius:"30px",borderBottomLeftRadius:"30px"}}        
         variant='contained'
         onClick={()=>itemHandler("desc")}
         >
         Add Text
+      </Button>
+      <Button 
+        color='secondary'
+        variant='contained'
+        onClick={()=>itemHandler("save")}>
+        Save
       </Button>
       <Button 
         sx={{borderTopRightRadius:"30px",borderBottomRightRadius:"30px"}}

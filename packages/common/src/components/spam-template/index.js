@@ -1,8 +1,5 @@
 import React from "react";
-import { Box, Typography, uuidv4, Link, FirstAd } from "@spammetwice/common";
-import { makeStyles, Grid } from "@spammetwice/common";
-import { fontSize } from "@mui/system";
-import { getCardContentUtilityClass } from "@mui/material";
+import { Box, Typography, uuidv4, Link, FirstAd,Grid } from "@spammetwice/common";
 import { SecondAd } from "../ads";
 
 export default function SpamTemplate({ props }) {
