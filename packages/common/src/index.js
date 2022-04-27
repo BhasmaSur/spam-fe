@@ -47,7 +47,19 @@ import TableRow from '@mui/material/TableRow';
 import { styled } from '@mui/material/styles';
 import TablePagination from '@mui/material/TablePagination';
 import Select from '@mui/material/Select';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import Chip from '@mui/material/Chip';
+import WorkIcon from '@mui/icons-material/Work';
+import SchoolIcon from '@mui/icons-material/School';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 export {
+  LocationOnIcon,
+  SchoolIcon,
+  WorkIcon,
+  Chip,
+  Stack,
+  Avatar,
   Select,
   TablePagination,
   styled,
@@ -137,6 +149,11 @@ export { useWindowDimensions };
 
 
 //demo data 
-import { data } from "./demo-data";
+import { data,profile_data } from "./demo-data";
 import fakeHttpRequests from "./utils/stub/fake-https";
-export { data,fakeHttpRequests };
+export { data,profile_data,fakeHttpRequests };
+
+//constants
+import { PROFILE_TABS } from "./utils/constants";
+
+export {PROFILE_TABS}

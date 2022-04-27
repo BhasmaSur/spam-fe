@@ -15,10 +15,15 @@ const AddSpamTemplate = () => {
   const [spamContent, setSpamContent] = useState([]);
   const handleTitleChange = () => {};
   const itemHandler = (type) => {
+    if(type === "save"){
+      alert("saved")
+    }else{
       let itemNumber = spamContent.length
-    let obj = { type, itemNumber };
-    type === "desc" ? (obj.content = "") : (obj.url = "");
-    setSpamContent([...spamContent, obj]);
+      let obj = { type, itemNumber };
+      type === "desc" ? (obj.content = "") : (obj.url = "");
+      setSpamContent([...spamContent, obj]);
+    }
+     
   };
 
   const deleteItem = (itemNumber) => {
