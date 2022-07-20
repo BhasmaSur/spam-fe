@@ -15,13 +15,13 @@ const Login = (props) => {
   })
   const handleLoginSuccess = async (loginData) => {
     const { user, isLoggedIn } = loginData;
+    console.log("user",user)
     if (isLoggedIn) {
       let tokenData = {
-        access_token:"ashjfbasjfbja",
-        refresh_token: "askgdhjavfhjavh"
+        access_token: user.jwtResponse?.jwtToken
       }
       setUserData(user)
-      setTenantData("tenant3456")
+      setTenantData(user.userId)
       setTokenData(tokenData)
       history("/")
     }

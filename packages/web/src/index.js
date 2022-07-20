@@ -5,14 +5,18 @@ import App from "./App";
 import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import store from "./redux/store";
-import {ThemeProvider,theme} from "@spammetwice/common"
+import {ThemeProvider,theme,QueryClient,QueryClientProvider} from "@spammetwice/common";
+
+const queryClient = new QueryClient()
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-      <App />
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+        <App />
+        </ThemeProvider>
+      </QueryClientProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

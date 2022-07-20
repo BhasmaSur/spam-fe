@@ -16,10 +16,23 @@ import {
   SchoolIcon,
   WorkIcon,
   IconButton,
+  useQuery
 } from "@spammetwice/common";
+import { httpService } from "@spammetwice/common/src/service-utils";
 
 const UserProfile = () => {
   const { spams, tags, activity, userHighligts } = profile_data;
+  const [userProfileData, setUserProfileData] = useState();
+  
+  const fetchUserProfile = async ()=>{
+    const res = await httpService('get-profile','get',null,"profile")
+    return res.data
+  }
+  const {data} = useQuery("profileData", fetchUserProfile);
+  if(data?.status !== 200){
+    //show error message
+  }
+  console.log("profile", data)
   const [tabSelected, setTabSelected] = useState("spams");
   const getTabDataSelected = () => {
     if (tabSelected === PROFILE_TABS.SPAMS) {
@@ -78,7 +91,6 @@ const UserProfile = () => {
                   {spam.createdOn}
                 </Typography>
               </Stack>
-
               <Divider />
             </>
           );
@@ -95,7 +107,7 @@ const UserProfile = () => {
             <WorkIcon />
           </IconButton>
           <Typography mt={1} align="left" variant="subtitle1">
-            {userHighligts.employment}
+            {data?.result.bio}
           </Typography>
         </Stack>
         <Stack direction="row">
@@ -103,7 +115,7 @@ const UserProfile = () => {
             < SchoolIcon/>
           </IconButton>
           <Typography mt={1} align="left" variant="subtitle1">
-            {userHighligts.education}
+            {data?.result.education}
           </Typography>
         </Stack>
         <Stack direction="row">
@@ -111,7 +123,7 @@ const UserProfile = () => {
             <LocationOnIcon />
           </IconButton>
           <Typography mt={1} align="left" variant="subtitle1">
-            {userHighligts.location}
+            {data?.result.location}
           </Typography>
         </Stack>
       </Box>
@@ -144,20 +156,17 @@ const UserProfile = () => {
           <Stack direction="row" spacing={2}>
             <Avatar
               alt="Remy Sharp"
-              src="/assets/me.jpeg"
+              src={data?.result.imageUrl}
               sx={{ width: 120, height: 120 }}
             />
             <Stack direction="column">
-              <Typography variant="h4">Mradul Mishra</Typography>
+              <Typography variant="h45">{data?.result.username}</Typography>
               <Typography align="left" variant="subtitle1">
-                Computer Engineer
+                {data?.result.bio}
               </Typography>
               <Stack direction="row">
                 <Typography variant="subtitle2" spacing={1}>
-                  3 followers
-                </Typography>
-                <Typography ml={1} variant="subtitle2" spacing={1}>
-                  3 following
+                  Total spam views - 78
                 </Typography>
               </Stack>
             </Stack>
@@ -166,7 +175,7 @@ const UserProfile = () => {
         <Box sx={{ width: "100%" }} mt={2}>
           <Stack direction="column">
             <Typography align="left" variant="subtitle2">
-              I Make Things
+              {data?.result.about}
             </Typography>
             <Typography color="text.disabled" align="left" variant="subtitle1">
               Edit

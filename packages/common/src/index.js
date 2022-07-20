@@ -113,6 +113,7 @@ export {
 
 //external packages
 import { v4 as uuidv4 } from "uuid";
+import {QueryClientProvider, QueryClient ,useQuery} from 'react-query';
 
 //custom components
 
@@ -139,7 +140,10 @@ export {
   SecondAd,
   AddSpamTemplate,
   AddFields,
-  UploadImageBox
+  UploadImageBox,
+  useQuery,
+  QueryClientProvider,
+  QueryClient
 };
 
 //custom hooks

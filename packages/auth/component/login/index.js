@@ -11,6 +11,7 @@ import {
 } from "@spammetwice/common";
 import { InputField } from "@spammetwice/common";
 import "./idplogin.css";
+import { httpService } from "@spammetwice/common/src/service-utils";
 
 const useStyles = makeStyles((theme)=>({
   loginBox:{
@@ -32,23 +33,23 @@ const IdpLogin = (props) => {
     historyHook("/home")
   }
 
-  const verifyUser = () => {
+  const verifyUser = async() => {
     if (!userName) {
       alert("enter user name");
     }
     if (userName && !password) {
       alert("enter password");
     }
-    if (userName && password && userName === "ramu" && password === "ramu") {
-      //alert("successfully logged in");
-      let userInfo = {
-        username: userName,
-        password: password,
-      };
+    const loginData = {
+      username : userName,
+      password
+    }
+    const { status, data} = await httpService('authenticate','post',loginData);
+    if(status == 200){
       onSuccess({
-        user: userInfo,
-        isLoggedIn: true,
-      });
+        user: data.result,
+        isLoggedIn: true
+      })
     }else{
       alert("Login failed")
     }
