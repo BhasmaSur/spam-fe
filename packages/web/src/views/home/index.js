@@ -5,7 +5,7 @@ function Home() {
   return (
     <div>
       <div>
-        <Link to="/question">Questions</Link>
+        <Link to="/spam">Spam</Link>
       </div>
       <div>
         <Link to="/add-spam">Add Spam</Link>

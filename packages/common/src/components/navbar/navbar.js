@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import {
   AppBar,
   Box,
@@ -36,6 +37,7 @@ export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [mobileDrawerEl, setMobileDrawerEl] = React.useState(false);
+  const [returnedValues, setReturnedValues] = useState([])
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const menuId = "primary-search-account-menu";
@@ -59,6 +61,14 @@ export default function PrimarySearchAppBar() {
   }
   const hendleReportedList = ()=>{
     historyHook("/reported-sites")
+  }
+
+  const searchRelavantSpam = ()=>{
+    console.log(event.target.value)
+    let values = returnedValues;
+    values.push(event.target.value)
+    console.log(values)
+    setReturnedValues(values)
   }
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -121,6 +131,7 @@ export default function PrimarySearchAppBar() {
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ "aria-label": "search" }}
+                onChange={searchRelavantSpam}
               />
             </SearchBar>
           </Box>

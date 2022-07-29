@@ -32,7 +32,7 @@ const GuardedRoutesBehindFeatureFlag = () => {
     <Layout flags={flags}>
       <Routes>
         <Route path="/admin-page" element={<Test />} exact />
-        <Route path="/landing-page" element={<LandingPage />} exact />
+        <Route path="/spam-page" element={<LandingPage />} exact />
         <Route path="/add-spam" element={<AddSpam />} exact />
         <Route path="/reported-sites" element={<ReportedSitesList />} exact />
         <Route path="/user-profile" element={<UserProfile />} exact />
@@ -57,7 +57,7 @@ const GuardedRoutes = () => {
   }, []);
 
   const getLandingPageAsPerPreference = (user) => {
-    return "/landing-page";
+    return "/spam-page";
   };
 
   useEffect(() => {
@@ -98,7 +98,7 @@ const AllRoute = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/question" element={<Question />} exact />
+        <Route path="/spam" element={<Question />} exact />
         <Route path="/home" element={<Home />} exact />
         <Route path="/login" element={<Login />} exact />
         <Route path="/signup" element={<SignUp />} exact />

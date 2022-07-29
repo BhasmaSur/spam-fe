@@ -16,7 +16,7 @@ import {
   SchoolIcon,
   WorkIcon,
   IconButton,
-  useQuery
+  useQuery,
 } from "@spammetwice/common";
 import { httpService } from "@spammetwice/common/src/service-utils";
 

@@ -1,10 +1,12 @@
 import React from "react";
 import { Box, Typography, uuidv4, Link, FirstAd,Grid } from "@spammetwice/common";
 import { SecondAd } from "../ads";
+import { DESCRIPTION_TYPE } from "../../utils/constants";
 
-export default function SpamTemplate({ props }) {
-  const { heading, description, resolution, similarSpams } = props;
-
+export default function SpamTemplate({ spamData,similarSpams }) {
+  // const { title, descriptionEntityList, resolution, similarSpams } = props;
+console.log("spamData : ", spamData)
+console.log("similarSpams : ", similarSpams)
   const getTextContent = (content) => {
     return (
       <Typography
@@ -29,10 +31,13 @@ export default function SpamTemplate({ props }) {
     );
   };
   const getTheDescription = (desc) => {
-    if (desc.type === "desc") {
-      return getTextContent(desc.content);
-    } else {
-      return getImageContent(desc.url);
+    switch(desc.descType){
+      case DESCRIPTION_TYPE.TEXT : 
+        return getTextContent(desc.descContent);
+      case DESCRIPTION_TYPE.IMAGE : 
+        return getImageContent(desc.descContent);
+      case DESCRIPTION_TYPE.VIDEO :
+        return getImageContent(desc.descContent);
     }
   };
   // console.log(props)
@@ -41,11 +46,11 @@ export default function SpamTemplate({ props }) {
       <Grid item sm={2} xs={0}></Grid>
       <Grid m={2} item sm={5} xs={11}>
         <Box sx={{ width: "100%" }}>
-          <Typography variant="h1">{heading}</Typography>
-          {description.map((desc) => getTheDescription(desc))}
+          <Typography variant="h1">{spamData.title}</Typography>
+          {spamData.descriptionEntityList.map((desc) => getTheDescription(desc))}
           <Box mt={3}>
             <Typography align="left" variant="h1">
-              Resolution : {resolution}
+              Resolution : lol
             </Typography>
           </Box>
         </Box>

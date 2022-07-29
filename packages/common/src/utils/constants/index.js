@@ -4,4 +4,10 @@ const PROFILE_TABS = {
     ACTIVITY : "activity"
 }
 
-export {PROFILE_TABS}
+const DESCRIPTION_TYPE = {
+    TEXT : "TEXT",
+    IMAGE : "IMAGE",
+    VIDEO : "VIDEO"
+}
+
+export {PROFILE_TABS,DESCRIPTION_TYPE}
