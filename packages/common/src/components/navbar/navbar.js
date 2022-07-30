@@ -30,14 +30,14 @@ import { StyledInputBase } from "@spammetwice/common/src/components/styled-input
 import MobileMenu from "./menu";
 import NestedMenu from "./nested-menu";
 import Drawer from "./drawer";
-import {useNavigate,Link} from "react-router-dom"
-
+import { useNavigate, Link } from "react-router-dom";
+import "./index.css";
 export default function PrimarySearchAppBar() {
-  const historyHook = useNavigate()
+  const historyHook = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [mobileDrawerEl, setMobileDrawerEl] = React.useState(false);
-  const [returnedValues, setReturnedValues] = useState([])
+  const [returnedValues, setReturnedValues] = useState([]);
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const menuId = "primary-search-account-menu";
@@ -56,20 +56,16 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
   const drawerId = "primary-search-account-drawer-mobile";
-  const redirectToHome = ()=>{
-    historyHook("/home")
-  }
-  const hendleReportedList = ()=>{
-    historyHook("/reported-sites")
-  }
+  const redirectToHome = () => {
+    historyHook("/home");
+  };
+  const hendleReportedList = () => {
+    historyHook("/reported-sites");
+  };
 
-  const searchRelavantSpam = ()=>{
-    console.log(event.target.value)
-    let values = returnedValues;
-    values.push(event.target.value)
-    console.log(values)
-    setReturnedValues(values)
-  }
+  const searchRelavantSpam = () => {
+    setReturnedValues((preV) => [...preV, event.target.value]);
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -143,7 +139,7 @@ export default function PrimarySearchAppBar() {
                 aria-label="account of current user"
                 aria-controls={menuId}
                 aria-haspopup="true"
-                onClick={()=>historyHook("/add-spam")}
+                onClick={() => historyHook("/add-spam")}
                 color="inherit"
               >
                 <AddIcon />
@@ -180,6 +176,14 @@ export default function PrimarySearchAppBar() {
         setMobileMoreAnchorEl={setMobileMoreAnchorEl}
       />
       {/* <NestedMenu anchorEl={anchorEl} setAnchorEl={setAnchorEl}/> */}
+      {returnedValues.length > 0 &&
+      (
+          <div className="testing">
+            {returnedValues.map((reV) => {
+              return <div>{reV}</div>;
+            })}
+          </div>
+        )}
     </Box>
   );
 }
