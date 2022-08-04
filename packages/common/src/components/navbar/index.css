@@ -1,7 +1,6 @@
 .testing{
-    width: 100%;
+    width: 99%;
     position: absolute;
-    left: 0;
     background-color: white;
     border: 1px solid;
     z-index: 10;

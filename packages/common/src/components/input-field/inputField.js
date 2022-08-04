@@ -1,7 +1,7 @@
 import { TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 
-const InputField = ({ text, type, handleChange }) => {
+const InputField = ({ text,value, type, handleChange }) => {
   return (
     <div>
       <Typography mt={2} align="left">{text}</Typography>
@@ -9,6 +9,7 @@ const InputField = ({ text, type, handleChange }) => {
         type={type}
         fullWidth={true}
         variant="outlined"
+        value={value}
         onChange={(event) => {
           handleChange(event.target.value);
         }}

@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Button, Grid, IconButton, DeleteIcon } from "@spammetwice/common";
 const UploadImageBox = ({handleChange,handleDelete,itemNumber}) => {
-  const fileSelectedHandler = () => {};
-  const uploadFile = () => {};
+  const [fileSelected, setFileSelected] = useState(null);
+  const fileSelectedHandler = () => {
+    setFileSelected(event.target.files[0])
+  };
+  const uploadFile = () => {
+    console.log("file selected : ", fileSelected)
+    //retrurn url of the file uploaded
+    let url = "https://thumbs.dreamstime.com/z/spam-electronic-spamming-computer-generated-image-d-render-64403295.jpg";
+    handleChange(url,itemNumber)
+  };
   return (
     <Grid container>
       <Grid

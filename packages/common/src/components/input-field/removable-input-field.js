@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme)=>({
     }
   }))
 
-const RemovableInputField = ({ text, type, handleChange,handleDelete,itemNumber }) => {
+const RemovableInputField = ({ text, type,value, handleChange,handleDelete,itemNumber }) => {
+
     const classes = useStyles()
   return (
     <Grid container>
@@ -25,8 +26,9 @@ const RemovableInputField = ({ text, type, handleChange,handleDelete,itemNumber 
           type={type}
           fullWidth={true}
           variant="outlined"
+          value={value}
           onChange={(event) => {
-            handleChange(event.target.value);
+            handleChange(event.target.value,itemNumber)
           }}
         />
       </Grid>

@@ -2,6 +2,7 @@ import React from 'react'
 import {Box,Button,AddIcon} from "@spammetwice/common"
 import { makeStyles } from "@spammetwice/common";
 import { padding, width } from '@mui/system';
+import { BUTTON_TYPE, DESCRIPTION_TYPE } from '../../utils/constants';
 
 const useStyles = makeStyles((theme)=>({
   boxStyle:{
@@ -23,25 +24,37 @@ const AddFields = ({itemHandler}) => {
     className={classes.boxStyle}
     >
       <Button 
-        color='secondary'
+        color='success'
         sx={{borderTopLeftRadius:"30px",borderBottomLeftRadius:"30px"}}        
         variant='contained'
-        onClick={()=>itemHandler("desc")}
+        onClick={()=>itemHandler(DESCRIPTION_TYPE.TEXT)}
         >
         Add Text
       </Button>
       <Button 
-        color='secondary'
+        color='success'
         variant='contained'
-        onClick={()=>itemHandler("save")}>
-        Save
+        onClick={()=>itemHandler(DESCRIPTION_TYPE.IMAGE)}>
+         Add Image
+      </Button>
+      <Button 
+        color='success'
+        variant='contained'
+        onClick={()=>itemHandler(DESCRIPTION_TYPE.URL)}>
+        Add URL
+      </Button>
+      <Button 
+        color='success'
+        variant='contained'
+        onClick={()=>itemHandler(DESCRIPTION_TYPE.VIDEO)}>
+        Add Video
       </Button>
       <Button 
         sx={{borderTopRightRadius:"30px",borderBottomRightRadius:"30px"}}
-        color='secondary'
+        color='warning'
         variant='contained'
-        onClick={()=>itemHandler("img")}>
-        Add Image
+        onClick={()=>itemHandler(BUTTON_TYPE.SAVE)}>
+         Save Spam
       </Button>
     </Box>
   )

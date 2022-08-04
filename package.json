@@ -11,5 +11,8 @@
     "start": "lerna run start --scope=@spammetwice/web",
     "bootstrap": "lerna bootstrap --hoist",
     "build": "lerna run build --scope=@spammetwice/web"
+  },
+  "dependencies": {
+    "yarn": "^1.22.19"
   }
 }
