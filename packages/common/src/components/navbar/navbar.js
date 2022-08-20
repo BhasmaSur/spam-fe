@@ -21,6 +21,8 @@ import {
   DeleteIcon,
   AddIcon,
   Button,
+  PrecisionManufacturingIcon,
+  GroupsIcon
 } from "@spammetwice/common";
 import {
   SearchBar,
@@ -32,7 +34,10 @@ import NestedMenu from "./nested-menu";
 import Drawer from "./drawer";
 import { useNavigate, Link } from "react-router-dom";
 import "./index.css";
+import { httpService } from "../../service-utils";
+import { auth } from "@spammetwice/auth";
 export default function PrimarySearchAppBar() {
+  const { getSessionData } = auth();
   const historyHook = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -64,8 +69,27 @@ export default function PrimarySearchAppBar() {
   };
 
   const searchRelavantSpam = () => {
-    setReturnedValues((preV) => [...preV, event.target.value]);
+    if(event.target.value !== ""){
+      httpService("search/" + event.target.value,"get",null,"spam").then((res)=>{
+        if(res){
+          setReturnedValues(res.data.result)
+        }
+      })
+    }
   };
+
+  const handleSpamSelected = (spamSelected) =>{
+    const { user, accessToken, refreshToken, tenantId } = getSessionData();
+    if (!user || !accessToken || !refreshToken || !tenantId) {
+      setReturnedValues([]);
+      historyHook("/spam",{state:{spamId: spamSelected}});
+      return;
+    }else{
+      setReturnedValues([]);
+      historyHook("/spam-page",{state:{spamId: spamSelected}});
+      return;
+    }
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -105,6 +129,19 @@ export default function PrimarySearchAppBar() {
                 <HomeIcon />
               </IconButton>
             </Tooltip>
+            <Tooltip title="Product">
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={redirectToHome}
+                color="inherit"
+              >
+                <PrecisionManufacturingIcon />
+              </IconButton>
+            </Tooltip>
             <Tooltip title="Reported Sites">
               <IconButton
                 size="large"
@@ -116,6 +153,19 @@ export default function PrimarySearchAppBar() {
                 color="inherit"
               >
                 <PlaylistRemoveIcon />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Our Team">
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={redirectToHome}
+                color="inherit"
+              >
+                <GroupsIcon />
               </IconButton>
             </Tooltip>
           </Box>
@@ -180,7 +230,7 @@ export default function PrimarySearchAppBar() {
       (
           <div className="testing">
             {returnedValues.map((reV) => {
-              return <div>{reV}</div>;
+              return <div onClick={()=>handleSpamSelected(reV.spamId)}>{reV.title}</div>;
             })}
           </div>
         )}

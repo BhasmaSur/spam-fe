@@ -22,6 +22,7 @@ import AddSpam from "../views/add-spam";
 import {LoadingScreen} from "@spammetwice/common";
 import ReportedSitesList from "../views/reported-sites";
 import UserProfile from "../views/user-profile";
+import LinksPage from "../views/links-page";
 
 const GuardedRoutesBehindFeatureFlag = () => {
   const flags = {
@@ -57,7 +58,7 @@ const GuardedRoutes = () => {
   }, []);
 
   const getLandingPageAsPerPreference = (user) => {
-    return "/spam-page";
+    return "/home";
   };
 
   useEffect(() => {
@@ -99,6 +100,7 @@ const AllRoute = () => {
     <Router>
       <Routes>
         <Route path="/spam" element={<Question />} exact />
+        <Route path="/links" element={<LinksPage />} exact />
         <Route path="/home" element={<Home />} exact />
         <Route path="/login" element={<Login />} exact />
         <Route path="/signup" element={<SignUp />} exact />

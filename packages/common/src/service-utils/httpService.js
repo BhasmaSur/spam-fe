@@ -26,7 +26,7 @@ const httpService = (
     if(stream) config['responseType'] = 'blob';
     const { getSessionData } = auth();
     let { tenantId, accessToken} = getSessionData()
-    if(accessToken){
+    if(accessToken && !serviceUrl.includes("search") && !serviceUrl.includes("stats")){
         config.headers.Authorization = `Bearer ${accessToken}`
     }
 

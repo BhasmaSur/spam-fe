@@ -53,7 +53,17 @@ import Chip from '@mui/material/Chip';
 import WorkIcon from '@mui/icons-material/Work';
 import SchoolIcon from '@mui/icons-material/School';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
+import GroupsIcon from '@mui/icons-material/Groups';
+import PhishingIcon from '@mui/icons-material/Phishing';
+import LinkIcon from '@mui/icons-material/Link';
+import GroupIcon from '@mui/icons-material/Group';
+import PhishingRoundedIcon from '@mui/icons-material/PhishingRounded';
 export {
+  PhishingRoundedIcon,
+  PhishingIcon,
+  LinkIcon,
+  GroupIcon,
   LocationOnIcon,
   SchoolIcon,
   WorkIcon,
@@ -108,7 +118,9 @@ export {
   DeleteIcon,
   AddIcon,
   LogoutIcon,
-  CircularProgress
+  CircularProgress,
+  PrecisionManufacturingIcon,
+  GroupsIcon
 };
 
 //external packages
@@ -127,6 +139,7 @@ import UploadImageBox from "./components/upload-img-box";
 import LoadingScreen from "./components/loading-screen"
 import CustomTable from "./components/custom-table"
 import RowBox from "./components/row-box";
+import Stats from "./components/stats";
 export {
   RowBox,
   CustomTable,
@@ -143,7 +156,8 @@ export {
   UploadImageBox,
   useQuery,
   QueryClientProvider,
-  QueryClient
+  QueryClient,
+  Stats
 };
 
 //custom hooks

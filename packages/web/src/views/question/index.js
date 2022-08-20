@@ -16,7 +16,6 @@ const Question = () => {
   }
   const {data} = useQuery("spam", fetchSpam);
   const similarSpams = data;
-  //console.log("spams",data)
   useEffect(() => {
     if (Object.entries(user).length !== 0) {
       historyHook("/spam-page");

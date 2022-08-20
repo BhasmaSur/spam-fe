@@ -42,7 +42,13 @@ const Drawer = ({ setMobileDrawerEl }) => {
             <ListItemText onClick={()=>redirectTo("/home")}>Home</ListItemText>
           </MenuItem>
           <MenuItem>
-            <ListItemText  onClick={()=>redirectTo("/reported-sites")}>Reported Sites</ListItemText>
+            <ListItemText  onClick={()=>redirectTo("/product")}>Product</ListItemText>
+          </MenuItem>
+          <MenuItem>
+            <ListItemText onClick={()=>redirectTo("/reported-sites")}>Reported Sites</ListItemText>
+          </MenuItem>
+          <MenuItem>
+            <ListItemText  onClick={()=>redirectTo("/our-team")}>Our Team</ListItemText>
           </MenuItem>
           <Divider />
           <MenuItem>
