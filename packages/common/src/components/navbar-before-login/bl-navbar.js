@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Box,
@@ -21,13 +21,14 @@ import {
 } from "@spammetwice/common/src/components/search-bar";
 import { StyledInputBase } from "@spammetwice/common/src/components/styled-input-base";
 import { Button } from "@mui/material";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import LoginIcon from "@mui/icons-material/Login";
 
 const BLNavbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [mobileDrawerEl, setMobileDrawerEl] = React.useState(false);
-  const [mobileSearchBar,setMobileSearchBar] = useState(false);
+  const [mobileSearchBar, setMobileSearchBar] = useState(false);
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const menuId = "primary-search-account-menu";
@@ -48,9 +49,9 @@ const BLNavbar = () => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const goToLoginPage = () =>{
-    historyHook("/login")
-  }
+  const goToLoginPage = () => {
+    historyHook("/login");
+  };
   const drawerId = "primary-search-account-drawer-mobile";
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -58,60 +59,56 @@ const BLNavbar = () => {
         <Toolbar>
           <Box sx={{ flexGrow: 1 }} />
           <Box>
-            <Typography
-              variant="h5"
-              mr={1}
-              noWrap
-              component="div"
-            >
+            <Typography variant="h5" mr={1}  mt={1}  noWrap component="div">
               Spam Me Twice!
             </Typography>
           </Box>
           <Box
             ml={4}
-            sx={{borderRadius:1, border:1,display: { xs: "block", sm: "none" } }}
-            onClick={()=>setMobileSearchBar(!mobileSearchBar)}
-          > 
-             <SearchIcon />  
-          </Box>
-          <Box width="1000px"
-          sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            <SearchBar>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </SearchBar>
+            mt={1}
+            sx={{
+              borderRadius: 1,
+              border: 1,
+              display: { xs: "block", sm: "none" },
+              padding: "1.5px"
+          
+            }}
+            onClick={() => setMobileSearchBar(!mobileSearchBar)}
+          > <SearchIcon />
           </Box>
 
           <Box
-          ml={1}
+            ml={3}
+            width="350px"
+            sx={{ display: { xs: "none", sm: "block" } }}
           >
-          <Button size="small" color="secondary" variant="outlined" onClick={goToLoginPage}>Login</Button>
+            <SearchBar />
+          </Box>
+
+          <Box ml={3} mt={1}>
+            <Button
+              
+              size="small"
+              color="inherit"
+              variant="outlined"
+              onClick={goToLoginPage}
+              startIcon={<LoginIcon />}
+            >Login
+            </Button>
           </Box>
           <Box sx={{ flexGrow: 1 }} />
         </Toolbar>
+
         {mobileSearchBar && (
-          <Box width="100%"
-          sx={{ display: { xs: "block", sm: "none" } }}
+          <Box
+            width="98%"
+            marginLeft="1%"
+            sx={{ display: { xs: "block", sm: "none" },  marginBottom: "5px" }}
           >
-            <SearchBar>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </SearchBar>
+            <SearchBar />
           </Box>
         )}
       </AppBar>
-     
     </Box>
   );
 };

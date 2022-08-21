@@ -6,6 +6,11 @@ import SpamTemplate from "@spammetwice/common/src/components/spam-template";
 import {data as testData} from "@spammetwice/web/src/demo-data";
 import {useQuery} from "@spammetwice/common";
 import { httpService } from "@spammetwice/common/src/service-utils";
+import Footer from "../../hoc/layout/footer";
+
+
+
+
 const Question = () => {
   const { getSessionData } = auth();
   const historyHook = useNavigate();
@@ -23,10 +28,19 @@ const Question = () => {
       return;
     }
   }, [historyHook]);
+
+
+  //{data && <SpamTemplate spamData={data[4]} similarSpams={similarSpams}/>}
+
   return (
     <div>
       <BLNavbar />
-      {data && <SpamTemplate spamData={data[4]} similarSpams={similarSpams}/>}
+
+
+   
+
+      
+      <Footer/>
     </div>
   );
 };

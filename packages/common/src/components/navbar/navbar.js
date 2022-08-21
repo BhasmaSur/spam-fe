@@ -119,17 +119,8 @@ export default function PrimarySearchAppBar() {
               </IconButton>
             </Tooltip>
           </Box>
-          <Box width="1000px">
-            <SearchBar>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-                onChange={searchRelavantSpam}
-              />
-            </SearchBar>
+          <Box >
+            <SearchBar/>
           </Box>
           <Box>
             <Tooltip title="Post Scam">
